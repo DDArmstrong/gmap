@@ -189,6 +189,66 @@
     }
   }
 
+  var CustomMapStyles = [
+      {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          { "color": "#444444" }
+        ]
+      },
+      {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+          { "color": "#ededed" }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+          { "saturation": -100 },
+          { "lightness": 45 }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+          { "visibility": "simplified" }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+          { "color": "#e8e6db" },
+          { "visibility": "on" }
+        ]
+      }
+    ];
 
   function load_map(cats){
 
@@ -196,7 +256,8 @@
     var options = {
       zoom: 15,
       center: center_latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles : CustomMapStyles
     }
     map = new google.maps.Map(document.getElementById("map"), options);
 
