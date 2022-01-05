@@ -229,14 +229,16 @@
         var marker = new google.maps.Marker({
           position:  point,
           icon: marker_icon,
-          label : {
-            text : data[i].name,
-            fontSize : '16px'
-          }
+          // label : 
         });
         marker.setMap(map);
         markers.push(marker);
         bounds.extend(point);
+
+        var label_obj = {
+          text : data[i].name,
+          fontSize : '16px'
+        }
 
         info_content = `<table>
                         <tr><td><b>Name:</b></td><td>${data[i].name}</td></tr>
@@ -257,6 +259,17 @@
             infoWindow.open(map, selectedMarker);
           });
         })(marker, info_content);
+
+        (function(selectedMarker, label) {
+          google.maps.event.addListener(map, 'zoom_changed', function() {
+            var zoomLevel = map.getZoom();
+            if (zoomLevel > 16) {
+              selectedMarker.setLabel(label);
+            } else {
+              selectedMarker.setLabel(null);
+            }
+          });
+        })(marker, label_obj);
 
       }
       
