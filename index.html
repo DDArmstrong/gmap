@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Basic Map</title>
+  <title>Notable New Yorkers of Bloomingdale & Morningside Heights</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <style>
@@ -214,10 +214,10 @@
 
         const marker_icon = {
           url: 'star.png',
-          size: new google.maps.Size(25, 25),
+          size: new google.maps.Size(20, 20),
           origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(25, 25),
-          scaledSize: new google.maps.Size(25, 25)
+          anchor: new google.maps.Point(20, 20),
+          scaledSize: new google.maps.Size(20, 20)
         };
         
         var marker = new google.maps.Marker({
@@ -238,7 +238,7 @@
                           <td><b>Wikipedia URL:</b></td>
                           <td><a href="${data[i].wikipedia_url}" target="_blank">${data[i].wikipedia_url}</a></td>
                         </tr>
-                        <tr><td><b>Bio:</b></td><td>${data[i].bio}</td></tr>
+                        <tr><td valign="top"><b>Bio:</b></td><td>${data[i].bio}</td></tr>
                       </table>`;
 
         (function(selectedMarker, info_content) {
